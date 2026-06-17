@@ -145,3 +145,6 @@
 @utility animate-float-soft { animation: float-soft 6s ease-in-out infinite; }
 @utility animate-sway { animation: sway 5s ease-in-out infinite; transform-origin: bottom center; }
 @utility animate-sparkle { animation: sparkle 2.6s ease-in-out infinite; }
+.eunoia{
+  font-size :25px;
+}

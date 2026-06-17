@@ -1,11 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Mail, Linkedin, FileDown, Heart } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Mail,
+  Linkedin,
+  FileDown,
+  Heart,
+} from "lucide-react";
 
-import { Butterfly, Sunflower, Cloud, Sparkle, Petal } from "@/components/eunoia/decorations";
+import {
+  Butterfly,
+  Sunflower,
+  Cloud,
+  Sparkle,
+  Petal,
+} from "@/components/eunoia/decorations";
 
-import memSunflowers from "@/assets/memory-sunflowers.jpg";
+import memSunflowers from "@/assets/narmu.png";
 import memDolphin from "@/assets/memory-dolphin.jpg";
 import memParis from "@/assets/memory-paris.jpg";
 import memCamera from "@/assets/memory-camera.jpg";
@@ -24,7 +37,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Narmu Eunoia — Beautiful Thinking" },
       {
         property: "og:description",
-        content: "Step into a sunflower garden of memories, dreams, and beautiful thinking.",
+        content:
+          "Step into a sunflower garden of memories, dreams, and beautiful thinking.",
       },
       { property: "og:image", content: sunsetField },
       { name: "twitter:image", content: sunsetField },
@@ -49,7 +63,10 @@ function Index() {
 
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
   const sunY = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const flowersY = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
@@ -84,19 +101,31 @@ function Hero() {
           style={{
             background:
               "conic-gradient(from 200deg at 70% 30%, transparent 0deg, rgba(255,240,180,0.3) 8deg, transparent 16deg, transparent 40deg, rgba(255,240,180,0.25) 48deg, transparent 56deg)",
-            maskImage: "radial-gradient(circle at 70% 30%, black 40%, transparent 70%)",
+            maskImage:
+              "radial-gradient(circle at 70% 30%, black 40%, transparent 70%)",
           }}
         />
       </div>
 
       {/* Clouds */}
       <Cloud className="top-[12%]" duration={80} delay={0} scale={1.1} />
-      <Cloud className="top-[22%]" duration={120} delay={10} scale={0.7} opacity={0.7} />
-      <Cloud className="top-[38%]" duration={100} delay={30} scale={1.3} opacity={0.65} />
+      <Cloud
+        className="top-[22%]"
+        duration={120}
+        delay={10}
+        scale={0.7}
+        opacity={0.7}
+      />
+      <Cloud
+        className="top-[38%]"
+        duration={100}
+        delay={30}
+        scale={1.3}
+        opacity={0.65}
+      />
 
       {/* Pollen particles */}
       <div className="pointer-events-none absolute inset-0">
-
         {Array.from({ length: 18 }).map((_, i) => (
           <motion.span
             key={i}
@@ -107,13 +136,22 @@ function Hero() {
               boxShadow: "0 0 8px rgba(255,220,120,0.9)",
             }}
             animate={{ y: [0, -30, 0], opacity: [0.2, 1, 0.2] }}
-            transition={{ duration: 4 + (i % 4), repeat: Infinity, delay: i * 0.2 }}
+            transition={{
+              duration: 4 + (i % 4),
+              repeat: Infinity,
+              delay: i * 0.2,
+            }}
           />
         ))}
       </div>
 
       {/* Butterflies */}
-      <Butterfly className="left-0 top-[20%]" size={32} duration={22} color="#c9a8e8" />
+      <Butterfly
+        className="left-0 top-[20%]"
+        size={32}
+        duration={22}
+        color="#c9a8e8"
+      />
       <Butterfly
         className="left-0 top-[50%]"
         size={26}
@@ -167,8 +205,12 @@ function Hero() {
           className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-foreground/80 md:text-lg"
         >
           A passionate flower lover who believes in the beauty of good things.{" "}
-          <span className="font-display italic text-sunset">Eunoia</span> means{" "}
-          <em>beautiful thinking</em> — and that&apos;s how I choose to see the world.
+          <br />
+          <span className="font-display italic text-sunset eunoia">
+            Eunoia
+          </span>{" "}
+          means <em>beautiful thinking</em> — and that&apos;s how I choose to
+          see the world.
         </motion.p>
 
         <motion.div
@@ -193,7 +235,10 @@ function Hero() {
       </div>
 
       {/* Sunflowers along the bottom */}
-      <motion.div style={{ y: flowersY }} className="pointer-events-none absolute inset-x-0 bottom-0 h-64">
+      <motion.div
+        style={{ y: flowersY }}
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-64"
+      >
         <Sunflower className="-bottom-6 left-[2%]" size={110} />
         <Sunflower className="-bottom-10 left-[14%]" size={80} />
         <Sunflower className="-bottom-4 left-[24%]" size={130} />
@@ -227,14 +272,29 @@ const memories = [
 
 const aboutLines = [
   { e: "🌻", t: "I love flowers, sunshine, and peaceful little gardens." },
-  { e: "💭", t: "Eunoia means beautiful thinking — I carry that in my heart every day." },
+  {
+    e: "💭",
+    t: "Eunoia means beautiful thinking — I carry that in my heart every day.",
+  },
   { e: "🤍", t: "Kindness is the prettiest thing a person can wear." },
-  { e: "🐬", t: "Part of my soul belongs to the ocean, dancing freely like a dolphin." },
-  { e: "🍛", t: "Biriyani is my forever comfort food and favorite happiness." },
-  { e: "✨", t: "Paris lives in my dreams, waiting beneath its glowing lights." },
-  { e: "📚", t: "I love learning new things and collecting achievements along the way." },
+  {
+    e: "🐬",
+    t: "Part of my soul belongs to the ocean, dancing freely like a dolphin.",
+  },
+
+  {
+    e: "✨",
+    t: "Paris lives in my dreams, waiting beneath its glowing lights.",
+  },
+  {
+    e: "📚",
+    t: "I love learning new things and collecting achievements along the way.",
+  },
   { e: "📸", t: "Photography helps me turn tiny moments into memories." },
-  { e: "🌸", t: "One day, I&apos;ll travel the world with wonder in my eyes and flowers in my hair." },
+  {
+    e: "🌸",
+    t: "One day, I&apos;ll travel the world with wonder in my eyes and flowers in my hair.",
+  },
 ];
 
 function About() {
@@ -263,7 +323,12 @@ function About() {
       ))}
 
       {/* decorative butterflies */}
-      <Butterfly className="left-0 top-[10%]" size={30} duration={30} color="#f6c445" />
+      <Butterfly
+        className="left-0 top-[10%]"
+        size={30}
+        duration={30}
+        color="#f6c445"
+      />
       <Butterfly
         className="left-0 top-[60%]"
         size={24}
@@ -303,7 +368,9 @@ function About() {
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ type: "spring", stiffness: 120, damping: 18 }}
                     className="absolute inset-0"
-                    style={{ filter: offset > 0 ? `blur(${offset * 0.5}px)` : "none" }}
+                    style={{
+                      filter: offset > 0 ? `blur(${offset * 0.5}px)` : "none",
+                    }}
                   >
                     <div className="glass h-full w-full rounded-2xl p-4 pb-14">
                       <img
@@ -363,7 +430,7 @@ function About() {
             viewport={{ once: true }}
             className="font-script text-2xl text-sunset"
           >
-            a little about me
+            a little
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -372,7 +439,7 @@ function About() {
             transition={{ delay: 0.1 }}
             className="font-display mt-2 text-5xl font-medium md:text-6xl"
           >
-            About Me <span className="text-gradient-sun">🌸</span>
+            About Me <span>🌸</span>
           </motion.h2>
 
           <ul className="mt-10 space-y-5">
@@ -401,13 +468,26 @@ function About() {
 /* ───────────────────────────── SKILLS ───────────────────────────── */
 
 const skills = [
-  "HTML", "CSS", "JavaScript", "React",
-  "MS Word", "MS Excel", "PowerPoint", "GitHub",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "MS Word",
+  "MS Excel",
+  "PowerPoint",
+  "GitHub",
+  "Asset management",
+  "Jira ticketing",
+  "Google workspace",
+  "Networking basics",
 ];
 
 function Skills() {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
   const yFront = useTransform(scrollYProgress, [0, 1], [0, -120]);
   const yBack = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
@@ -424,21 +504,52 @@ function Skills() {
       {/* sun glow */}
       <div
         className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full opacity-70 blur-3xl"
-        style={{ background: "radial-gradient(circle, #fff3c4 0%, transparent 70%)" }}
+        style={{
+          background: "radial-gradient(circle, #fff3c4 0%, transparent 70%)",
+        }}
       />
 
       {/* parallax clouds */}
-      <motion.div style={{ y: yBack }} className="pointer-events-none absolute inset-0">
+      <motion.div
+        style={{ y: yBack }}
+        className="pointer-events-none absolute inset-0"
+      >
         <Cloud className="top-[8%]" duration={140} scale={0.9} opacity={0.7} />
-        <Cloud className="top-[34%]" duration={160} delay={20} scale={1.1} opacity={0.6} />
-        <Cloud className="top-[60%]" duration={180} delay={50} scale={0.8} opacity={0.55} />
+        <Cloud
+          className="top-[34%]"
+          duration={160}
+          delay={20}
+          scale={1.1}
+          opacity={0.6}
+        />
+        <Cloud
+          className="top-[60%]"
+          duration={180}
+          delay={50}
+          scale={0.8}
+          opacity={0.55}
+        />
       </motion.div>
-      <motion.div style={{ y: yFront }} className="pointer-events-none absolute inset-0">
+      <motion.div
+        style={{ y: yFront }}
+        className="pointer-events-none absolute inset-0"
+      >
         <Cloud className="top-[20%]" duration={90} scale={1.4} opacity={0.95} />
-        <Cloud className="top-[48%]" duration={110} delay={15} scale={1.2} opacity={0.9} />
+        <Cloud
+          className="top-[48%]"
+          duration={110}
+          delay={15}
+          scale={1.2}
+          opacity={0.9}
+        />
       </motion.div>
 
-      <Butterfly className="left-0 top-[15%]" size={28} duration={26} color="#f6c445" />
+      <Butterfly
+        className="left-0 top-[15%]"
+        size={28}
+        duration={26}
+        color="#f6c445"
+      />
       <Butterfly
         className="left-0 top-[75%]"
         size={32}
@@ -469,7 +580,7 @@ function Skills() {
 
         <div className="mx-auto mt-16 grid max-w-5xl grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
           {skills.map((skill, i) => (
-            <SkillCloud key={skill} label={skill} delay={i * 0.08} />
+            <SkillCloud key={skill} label={skill} index={i} delay={i * 0.08} />
           ))}
         </div>
       </div>
@@ -477,41 +588,66 @@ function Skills() {
   );
 }
 
-function SkillCloud({ label, delay }: { label: string; delay: number }) {
+function SkillCloud({
+  label,
+  delay,
+  index,
+}: {
+  label: string;
+  delay: number;
+  index: number;
+}) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.9 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ delay, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ scale: 1.08, y: -6 }}
-      className="group relative animate-float-soft"
-      style={{ animationDelay: `${delay}s` }}
+ <motion.div
+  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+  viewport={{ once: true, margin: "-50px" }}
+  transition={{
+    delay,
+    duration: 0.7,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  whileHover={{ scale: 1.08, y: -6 }}
+  className="group relative animate-float-soft will-change-transform"
+  style={{ animationDelay: `${delay}s` }}
+>
+     <div className="relative">
+  {/* cloud shape */}
+  <svg
+    viewBox="0 0 200 110"
+    preserveAspectRatio="xMidYMid meet"
+    className="block h-auto w-full drop-shadow-[0_12px_30px_rgba(120,160,210,0.25)]"
+  >
+    <g
+      fill="#ffffff"
+      // stroke="#edf5ff"
+      // strokeWidth="1.5"
     >
-      <div className="relative">
-        {/* cloud shape */}
-        <svg viewBox="0 0 200 110" className="h-auto w-full drop-shadow-[0_12px_30px_rgba(120,160,210,0.35)]">
-          <defs>
-            <radialGradient id={`cg-${label}`} cx="50%" cy="40%" r="60%">
-              <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="100%" stopColor="#f3f8ff" />
-            </radialGradient>
-          </defs>
-          <g fill={`url(#cg-${label})`}>
-            <ellipse cx="55" cy="75" rx="42" ry="28" />
-            <ellipse cx="105" cy="58" rx="50" ry="36" />
-            <ellipse cx="155" cy="75" rx="40" ry="26" />
-            <ellipse cx="80" cy="48" rx="30" ry="22" />
-            <ellipse cx="135" cy="48" rx="28" ry="20" />
-          </g>
-        </svg>
-        <span className="font-display absolute inset-0 grid place-items-center pt-2 text-lg font-medium text-foreground/80 md:text-xl">
-          {label}
-        </span>
-        {/* sparkles on hover */}
-        <span className="pointer-events-none absolute -top-1 right-6 h-2 w-2 rounded-full bg-yellow-200 opacity-0 transition group-hover:opacity-100 group-hover:animate-sparkle" style={{ boxShadow: "0 0 12px gold" }} />
-        <span className="pointer-events-none absolute bottom-3 left-6 h-1.5 w-1.5 rounded-full bg-yellow-100 opacity-0 transition group-hover:opacity-100 group-hover:animate-sparkle" style={{ boxShadow: "0 0 10px gold", animationDelay: "0.4s" }} />
-      </div>
+      <ellipse cx="55" cy="75" rx="42" ry="28" />
+      <ellipse cx="105" cy="58" rx="50" ry="36" />
+      <ellipse cx="155" cy="75" rx="40" ry="26" />
+      <ellipse cx="80" cy="48" rx="30" ry="22" />
+      <ellipse cx="135" cy="48" rx="28" ry="20" />
+    </g>
+  </svg>
+
+  <span className="font-display absolute inset-0 grid place-items-center pt-2 text-lg font-medium text-foreground/80 md:text-xl">
+    {label}
+  </span>
+
+  {/* sparkles on hover */}
+  <span
+    className="pointer-events-none absolute -top-1 right-6 h-2 w-2 rounded-full bg-yellow-200 opacity-0 transition group-hover:opacity-100 group-hover:animate-sparkle"
+    style={{ boxShadow: "0 0 12px gold" }}
+  />
+  <span
+    className="pointer-events-none absolute bottom-3 left-6 h-1.5 w-1.5 rounded-full bg-yellow-100 opacity-0 transition group-hover:opacity-100 group-hover:animate-sparkle"
+    style={{
+      boxShadow: "0 0 10px gold",
+      animationDelay: "0.4s",
+    }}
+  />
+</div>
     </motion.div>
   );
 }
@@ -520,10 +656,7 @@ function SkillCloud({ label, delay }: { label: string; delay: number }) {
 
 function Contact() {
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden py-28 md:py-36"
-    >
+    <section id="contact" className="relative overflow-hidden py-28 md:py-36">
       {/* sunset field background */}
       <div className="absolute inset-0">
         <img
@@ -544,7 +677,12 @@ function Contact() {
       </div>
 
       {/* butterflies */}
-      <Butterfly className="left-0 top-[20%] z-10" size={28} duration={28} color="#fff3c4" />
+      <Butterfly
+        className="left-0 top-[20%] z-10"
+        size={28}
+        duration={28}
+        color="#fff3c4"
+      />
       <Butterfly
         className="left-0 top-[70%] z-10"
         size={24}
@@ -577,50 +715,28 @@ function Contact() {
           <SunflowerCard
             icon={<Mail className="h-6 w-6" />}
             label="Email"
-            value="narmu.eunoia@email.com"
-            href="mailto:narmu.eunoia@email.com"
+            value="narmusrm@gmail.com"
+            href="mailto:narmusrm@gmail.com"
             delay={0}
           />
           <SunflowerCard
             icon={<Linkedin className="h-6 w-6" />}
             label="LinkedIn"
             value="@narmu-eunoia"
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/narmu-srm-8044ab375/"
             delay={0.15}
           />
           <SunflowerCard
             icon={<FileDown className="h-6 w-6" />}
             label="Resume"
             value="Download Resume"
-            href="#"
+            href="src/assets/Narmatha-Resume.pdf"
             delay={0.3}
           />
         </div>
 
         {/* Contact form */}
-        <motion.form
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          onSubmit={(e) => e.preventDefault()}
-          className="glass mx-auto mt-20 max-w-2xl rounded-3xl p-8 text-left"
-        >
-          <h3 className="font-display text-2xl text-foreground">send a little note</h3>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <FloralInput placeholder="Your name" />
-            <FloralInput placeholder="Your email" type="email" />
-          </div>
-          <div className="mt-4">
-            <FloralInput as="textarea" placeholder="Write something beautiful…" />
-          </div>
-          <button
-            type="submit"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sunset to-sunflower px-7 py-3 text-sm font-medium text-white shadow-lg transition hover:scale-105"
-          >
-            send with kindness <Heart className="h-4 w-4 fill-white" />
-          </button>
-        </motion.form>
+        
       </div>
     </section>
   );
@@ -636,7 +752,8 @@ function FloralInput({
 }) {
   const cls =
     "w-full rounded-2xl border border-white/40 bg-white/60 px-5 py-3 text-foreground placeholder:text-foreground/40 outline-none backdrop-blur transition focus:border-sunset/60 focus:bg-white/90 focus:shadow-[0_0_0_4px_rgba(246,196,69,0.25)]";
-  if (as === "textarea") return <textarea rows={5} className={cls} {...props} />;
+  if (as === "textarea")
+    return <textarea rows={5} className={cls} {...props} />;
   return <input className={cls} {...props} />;
 }
 
